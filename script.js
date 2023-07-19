@@ -78,6 +78,10 @@ async function fillTimes() {
             continue;
         }
 
+        if (line.children[3].children[0].children[0].children[0].children[0].innerHTML === '08:00 - 2 Férias') {
+            continue;
+        }
+
         (await elementRendered('#' + line.children[2].children[0].children[0].id, undefined)).click();
 
         // first hour
