@@ -1,4 +1,3 @@
-
 var hourControl = 1;
 
 function generateStartHour() {
@@ -99,11 +98,19 @@ async function fillTimes() {
         (await elementRendered('#marcacaoTime-1')).value = generateEndHour();
         (await elementRendered('#marcacaoTime-1')).dispatchEvent(new Event('input'));
         (await elementRendered('#selectJustificative-1 > span > span.ui-select-placeholder.text-muted.ng-binding')).click();
+        await new Promise(r => setTimeout(r, 2000));
         (await elementRendered('#justificative_4')).click();
-        await new Promise(r => setTimeout(r, 2000));
-        (await elementRendered('#saveAppointment')).click();
 
+        await new Promise(r => setTimeout(r, 1000));
+        (await elementRendered('#saveAppointment')).click();
         await new Promise(r => setTimeout(r, 2000));
+
+        try {
+            document.querySelector('#dialogo_btn_0').click();
+            await new Promise(r => setTimeout(r, 2000));
+        } catch (e) {
+
+        }
     }
 }
 
